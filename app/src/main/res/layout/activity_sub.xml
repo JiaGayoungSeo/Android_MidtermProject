@@ -25,13 +25,12 @@
                 android:text="Department #"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <EditText
-                android:id="@+id/editText"
+            <TextView
+                android:id="@+id/txtDept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         </TableRow>
 
         <TableRow
@@ -46,12 +45,11 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/et_net"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
         </TableRow>
 
         <TableRow
@@ -62,15 +60,15 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Surcharge"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <EditText
-                android:id="@+id/editText3"
+            <TextView
+                android:id="@+id/txt_surcharge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         </TableRow>
 
         <TableRow
@@ -81,15 +79,15 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:text="Total Invoice: "
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <EditText
-                android:id="@+id/editText4"
+            <TextView
+                android:id="@+id/txt_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         </TableRow>
 
         <TableRow
@@ -97,10 +95,10 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
+                android:id="@+id/btn_return"
+                android:layout_width="146dp"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="Return" />
         </TableRow>
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
