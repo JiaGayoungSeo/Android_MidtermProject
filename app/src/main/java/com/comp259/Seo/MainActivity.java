@@ -25,11 +25,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 int dept = Integer.parseInt(et_dept.getText().toString());
 
-                Bundle bundle = new Bundle();
-                bundle.putInt("deptNumber", dept);
+              //  Bundle bundle = new Bundle();
+                //bundle.putInt("deptNumber", dept);
                 Intent intent = new Intent(MainActivity.this, SubActivity.class);
-                intent.putExtras(bundle);
-                startActivityForResult(intent,1);
+                intent.putExtra("deptNumber",dept);
+                startActivity(intent);
 
             }
         });

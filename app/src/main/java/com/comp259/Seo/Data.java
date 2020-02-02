@@ -7,13 +7,13 @@ public class Data {
     private double totalInvoice;
 
 
-
     public int getDeptNumber() {
         return deptNumber;
     }
 
     public void setDeptNumber(int deptNumber) {
         this.deptNumber = deptNumber;
+        setSurcharge();
     }
 
     public double getNetInvoice() {
@@ -21,7 +21,9 @@ public class Data {
     }
 
     public void setNetInvoice(double netInvoice) {
+
         this.netInvoice = netInvoice;
+
     }
 
     public double getSurcharge() {
@@ -37,12 +39,9 @@ public class Data {
     }
 
     public double getTotalInvoice() {
-        return totalInvoice;
+        return netInvoice+surcharge;
     }
 
-    public void setTotalInvoice() {
-        this.totalInvoice = netInvoice+surcharge;
-    }
 
 
 }

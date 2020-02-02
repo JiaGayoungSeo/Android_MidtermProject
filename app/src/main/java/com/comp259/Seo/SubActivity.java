@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 public class SubActivity extends AppCompatActivity {
 
-    private TextView txtSurcharge;
-    private TextView txtTotal;
+    private TextView txtSurcharge,txtTotal,txtDepart;
+
     private EditText et_netInvoice;
     private Data data;
     private Intent intent;
@@ -23,18 +23,22 @@ public class SubActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub);
 
+        txtDepart = findViewById(R.id.txt_department);
         txtSurcharge= findViewById(R.id.txt_surcharge);
         txtTotal = findViewById(R.id.txt_total);
         et_netInvoice = findViewById(R.id.et_net);
 
         intent =new Intent(this.getIntent());
-        bundle = new Bundle();
+
         bundle = intent.getExtras();
 
         data = new Data();
 
         int deptNumber = bundle.getInt("deptNumber");
-        double netInvoice = Double.parseDouble(et_netInvoice.getText().toString());
+        txtDepart.setText(deptNumber);
+        data.setDeptNumber(deptNumber);
+
+        //double netInvoice = Double.parseDouble(et_netInvoice.getText().toString());
 
 
         et_netInvoice.addTextChangedListener(netChangeWatcher);
@@ -60,6 +64,11 @@ public class SubActivity extends AppCompatActivity {
 
         }
     };
+
+    private void display(){
+        txtSurcharge.setText("$"+ String.format("%.02f", data.getSurcharge()));
+        txtTotal.setText("$"+ String.format("%.02f", data.getTotalInvoice()));
+    }
 
 
 }
