@@ -13,7 +13,6 @@ public class Data {
 
     public void setDeptNumber(int deptNumber) {
         this.deptNumber = deptNumber;
-        setSurcharge();
     }
 
     public double getNetInvoice() {
@@ -23,6 +22,7 @@ public class Data {
     public void setNetInvoice(double netInvoice) {
 
         this.netInvoice = netInvoice;
+        setSurcharge();
 
     }
 
@@ -31,7 +31,7 @@ public class Data {
     }
 
     public void setSurcharge() {
-        if(deptNumber>2500){
+        if(getDeptNumber()>2500){
             this.surcharge = 0.25*netInvoice;
         }else {
             this.surcharge=0;

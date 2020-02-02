@@ -6,15 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class SubActivity extends AppCompatActivity {
 
     private TextView txtSurcharge,txtTotal,txtDepart;
-
     private EditText et_netInvoice;
     private Data data;
+    private Button btnReturn;
     private Intent intent;
     private Bundle bundle;
 
@@ -27,6 +29,7 @@ public class SubActivity extends AppCompatActivity {
         txtSurcharge= findViewById(R.id.txt_surcharge);
         txtTotal = findViewById(R.id.txt_total);
         et_netInvoice = findViewById(R.id.et_net);
+        btnReturn = findViewById(R.id.btn_return);
 
         intent =new Intent(this.getIntent());
 
@@ -35,13 +38,19 @@ public class SubActivity extends AppCompatActivity {
         data = new Data();
 
         int deptNumber = bundle.getInt("deptNumber");
-        txtDepart.setText(deptNumber);
         data.setDeptNumber(deptNumber);
 
-        //double netInvoice = Double.parseDouble(et_netInvoice.getText().toString());
-
-
+        txtDepart.setText(String.valueOf(deptNumber));
         et_netInvoice.addTextChangedListener(netChangeWatcher);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("total",data.getTotalInvoice());
+                setResult(1,returnIntent);
+                finish();
+            }
+        });
     }
 
     private TextWatcher netChangeWatcher = new TextWatcher() {
@@ -54,6 +63,7 @@ public class SubActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence s, int start, int before, int count) {
            try{
                 data.setNetInvoice(Double.parseDouble(s.toString()));
+                display();
            }catch (NumberFormatException e){
 
            }
